@@ -16,7 +16,7 @@ type Mutation {
         password: String @rules(apply: ["required", "string", "between:8,12"])
     ): User @create(model: "App\\User")
     updateUser(
-        id: ID @rules(apply: ["required"])
+        id: ID @rules(apply: ["required", "exists:users"])
         name: String
         email: String @rules(apply: ["email"])
     ): User @update(model: "App\\User")
